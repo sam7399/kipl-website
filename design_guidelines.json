@@ -1,0 +1,145 @@
+{
+  "theme": "light",
+  "archetype": "Archetype 4 (Swiss & High-Contrast) + Archetype 1 (Organic & Earthy)",
+  "colors": {
+    "primary": "#0A192F",
+    "primary_hover": "#112240",
+    "accent": "#10B981",
+    "accent_hover": "#059669",
+    "background_primary": "#FFFFFF",
+    "background_secondary": "#F8FAFC",
+    "text_primary": "#0A192F",
+    "text_secondary": "#475569",
+    "text_muted": "#94A3B8",
+    "sustainability_bg": "#022C22",
+    "sustainability_text": "#F8FAFC",
+    "border": "#E2E8F0"
+  },
+  "typography": {
+    "heading_font": "Outfit",
+    "body_font": "Manrope",
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap",
+    "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tighter leading-[1.1] font-bold",
+    "h2": "text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-snug font-bold",
+    "h3": "text-xl sm:text-2xl tracking-tight font-semibold",
+    "h4": "text-lg sm:text-xl font-medium",
+    "body": "text-base sm:text-lg leading-relaxed font-normal",
+    "overline": "text-xs tracking-[0.2em] uppercase font-bold text-[#10B981]"
+  },
+  "spacing_and_radius": {
+    "section_padding": "py-24 md:py-32",
+    "container_padding": "px-6 md:px-12 lg:px-24 max-w-7xl mx-auto",
+    "card_radius": "rounded-2xl",
+    "button_radius": "rounded-full",
+    "input_radius": "rounded-lg"
+  },
+  "motion_and_interactions": {
+    "reveal_on_scroll": "framer-motion: initial={opacity: 0, y: 20}, whileInView={opacity: 1, y: 0}, viewport={once: true}, transition={duration: 0.6}",
+    "hover_scale": "hover:scale-[1.02] transition-transform duration-300 ease-out",
+    "card_hover": "hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out",
+    "button_hover_primary": "hover:bg-[#059669] hover:scale-[1.02] transition-all duration-300 text-white bg-[#10B981]",
+    "button_hover_secondary": "hover:bg-white/10 hover:scale-[1.02] transition-all duration-300 text-white border border-white/20",
+    "hero_animation": "Slow high-fidelity CSS/SVG animation of molecular structures forming & connecting. Loop."
+  },
+  "components_blueprint": {
+    "Navigation": {
+      "layout": "Sticky top, z-50. Glassmorphism: backdrop-blur-xl bg-[#0A192F]/90 text-white. Flex between: Logo left, Nav links center (gap-8), CTA right. Bottom border border-white/10.",
+      "components_used": "Custom HTML/Tailwind, Framer Motion for mobile menu."
+    },
+    "Hero": {
+      "layout": "min-h-[90vh] flex items-center relative overflow-hidden bg-[#0A192F] text-white",
+      "details": "H1: 'Engineering the Future of Specialty Ingredients', sub: 'Advanced aroma chemicals...', dual CTAs. Overlay: background SVG animation of connecting nodes/molecules (opacity-20).",
+      "components_used": "Custom HTML/Tailwind"
+    },
+    "About_Timeline": {
+      "layout": "Grid 1 md:2. Left: About us text & 3 sub-bullets (Global Footprint, Proven Expertise, Future-Ready Scale). Right: Vertical timeline 1997 -> Present.",
+      "bg_color": "bg-[#F8FAFC]",
+      "components_used": "Custom HTML/Tailwind"
+    },
+    "Products_Solutions": {
+      "layout": "Horizontal scrolling cards or CSS Grid for 5 categories. Each card has a hover effect revealing a molecular-structure watermark.",
+      "bg_color": "bg-white",
+      "details": "Categories: Aroma Chemicals, Specialty Ingredients, Phenol Derivatives, Natural-Identical Compounds, Custom Manufacturing.",
+      "components_used": "Shadcn Card heavily customized, Framer Motion for hover"
+    },
+    "Industries_Bento": {
+      "layout": "Bento Box grid: grid-cols-1 md:grid-cols-3. 5 items total. Span logic for asymmetry.",
+      "bg_color": "bg-[#F8FAFC]",
+      "details": "High-end abstract macro photography as background for each bento item. Overlay bg-black/40 for text contrast.",
+      "components_used": "Custom HTML/Tailwind Grid"
+    },
+    "Manufacturing_Hotspots": {
+      "layout": "Full width image of Dahej facility with absolute positioned interactive pulsing hotspots (Reactions, Distillation, QC Lab).",
+      "bg_color": "bg-white",
+      "components_used": "Custom HTML/Tailwind, Tooltip from Shadcn for hotspot info"
+    },
+    "Sustainability": {
+      "layout": "Deep emerald green background (#022C22). Grid 1 md:3 for pillars + large CTA section for report download.",
+      "text_color": "text-[#F8FAFC]",
+      "details": "Pillars: Eco-Conscious Manufacturing, Global Compliance, Responsible Sourcing. ISO/Compliance icons strip at bottom.",
+      "components_used": "Custom HTML/Tailwind, Lucide icons"
+    },
+    "RnD_Innovation": {
+      "layout": "Split layout. Image of modern lab with structural formula SVG overlay on one side. Text on the other.",
+      "bg_color": "bg-[#F8FAFC]",
+      "components_used": "Custom HTML/Tailwind"
+    },
+    "Contact": {
+      "layout": "Grid 1 md:2. Left: Location details (Mumbai HQ, Dahej). Right: Contact Form.",
+      "bg_color": "bg-white",
+      "components_used": "Shadcn Form, Input, Select, Textarea, Button"
+    },
+    "Footer": {
+      "layout": "Mega footer py-20 bg-[#0A192F] text-white/70. Grid 1 md:4. Large logo/brand name.",
+      "components_used": "Custom HTML/Tailwind"
+    }
+  },
+  "image_urls": [
+    {
+      "category": "hero_background",
+      "url": "https://images.unsplash.com/photo-1579567761406-4684ee0c75b6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODh8MHwxfHNlYXJjaHwxfHxtb2xlY3VsYXIlMjBzdHJ1Y3R1cmUlMjBjaGVtaXN0cnklMjBhYnN0cmFjdCUyMGRhcmslMjBibHVlfGVufDB8fHx8MTc3Nzg1MDg0OXww&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract blue and white art to use as a subtle dark overlay background in hero."
+    },
+    {
+      "category": "dahej_facility",
+      "url": "https://images.unsplash.com/photo-1776173061254-ad96517c34cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwyfHxtYW51ZmFjdHVyaW5nJTIwcGxhbnQlMjBmYWNpbGl0eSUyMGV4dGVyaW9yfGVufDB8fHx8MTc3Nzg1MDg0NHww&ixlib=rb-4.1.0&q=85",
+      "description": "Modern industrial facility exterior."
+    },
+    {
+      "category": "lab_rnd",
+      "url": "https://images.unsplash.com/photo-1630959299388-6e983fed7b98?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzOTB8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBzY2llbmNlJTIwbGFib3JhdG9yeSUyMHByZWNpc2lvbnxlbnwwfHx8fDE3Nzc4NTA4NDR8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Modern science laboratory."
+    },
+    {
+      "category": "sustainability_greenery",
+      "url": "https://images.unsplash.com/photo-1762346380938-a522c9320690?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJpbGl0eSUyMGdyZWVuJTIwZWNvJTIwZnJpZW5kbHklMjBwbGFudHxlbnwwfHx8fDE3Nzc4NTA4NDR8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Lush green leaves, macro shot."
+    },
+    {
+      "category": "macro_flavors",
+      "url": "https://images.unsplash.com/photo-1770123366843-a0950ba0f92c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzF8MHwxfHNlYXJjaHwxfHxtYWNybyUyMHdhdGVyJTIwZHJvcCUyMG9yYW5nZSUyMGNpdHJ1c3xlbnwwfHx8fDE3Nzc4NTA4NTN8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Orange slice splashing water."
+    },
+    {
+      "category": "macro_cosmetics",
+      "url": "https://images.unsplash.com/photo-1626783416763-67a92e5e7266?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxtYWNybyUyMHNraW4lMjBjcmVhbSUyMHRleHR1cmV8ZW58MHx8fHwxNzc3ODUwODUzfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Cosmetic texture / smooth bowl."
+    },
+    {
+      "category": "macro_pharmaceuticals",
+      "url": "https://images.unsplash.com/photo-1770732851655-a789335a31c8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxtYWNybyUyMGFic3RyYWN0JTIwcGhhcm1hY2V1dGljYWwlMjBwb3dkZXIlMjBjcnlzdGFsfGVufDB8fHx8MTc3Nzg1MDg0OXww&ixlib=rb-4.1.0&q=85",
+      "description": "White crystalline powder."
+    },
+    {
+      "category": "macro_food_beverage",
+      "url": "https://images.unsplash.com/photo-1773957949158-685bf4e2f463?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwxfHxtYWNybyUyMGFic3RyYWN0JTIwaG9uZXklMjBhbWJlciUyMGxpcXVpZHxlbnwwfHx8fDE3Nzc4NTA4NDl8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Juicy orange slice with bubbles."
+    },
+    {
+      "category": "macro_wellness",
+      "url": "https://images.unsplash.com/photo-1726996155550-d69c6a9118b6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHxtYWNybyUyMHdlbGxuZXNzJTIwc3VwcGxlbWVudHMlMjBoZXJic3xlbnwwfHx8fDE3Nzc4NTA4NjB8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Close up bunch of leaves / herbs."
+    }
+  ],
+  "instructions_to_main_agent": "Ensure strictly adhering to the #0A192F (Navy) and #10B981 (Emerald) color palette. Use the Outfit font for headings and Manrope for body text via the provided Google Fonts URL. The UI must exude high-end precision. Bento box industries section must use the macro images provided as backgrounds with a dark gradient overlay so text remains perfectly readable (APCA contrast compliance). For the SVG molecular animation, write lightweight inline CSS/SVG directly in the component. Utilize framer-motion heavily for the requested 20px reveal-on-scroll and the 300ms hover scales. Include `data-testid` on all buttons, forms, and interactive elements."
+}

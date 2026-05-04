@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="theme-color" content="#0A192F" />
+        <meta name="format-detection" content="telephone=no" />
+
+        <title>Krystal Ingredients Pvt. Ltd. — Specialty Aroma Chemicals & Custom Synthesis</title>
+        <meta
+            name="description"
+            content="Krystal Ingredients Pvt. Ltd. (KIPL) is a next-generation specialty chemicals manufacturer — aroma chemicals, phenol derivatives, natural-identical compounds and custom synthesis from our Mumbai HQ and Dahej, Gujarat manufacturing facility."
+        />
+        <meta
+            name="keywords"
+            content="Krystal Ingredients, KIPL, Gem Aromatics, aroma chemicals India, specialty chemicals manufacturer, Dahej facility, custom synthesis, phenol derivatives, natural identical compounds, fragrance ingredients, food grade aroma"
+        />
+        <meta name="author" content="Krystal Ingredients Pvt. Ltd." />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link rel="canonical" href="/" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Krystal Ingredients" />
+        <meta property="og:title" content="Krystal Ingredients — Engineering the Future of Specialty Ingredients" />
+        <meta
+            property="og:description"
+            content="A next-generation specialty chemical manufacturer — wholly-owned subsidiary of Gem Aromatics Ltd. Aroma chemicals, custom synthesis, and a state-of-the-art Dahej facility."
+        />
+        <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
+        <meta property="og:locale" content="en_IN" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Krystal Ingredients — Specialty Aroma Chemistry" />
+        <meta
+            name="twitter:description"
+            content="Aroma chemicals, custom synthesis & specialty ingredients — engineered in India, delivered globally."
+        />
+        <meta name="twitter:image" content="%PUBLIC_URL%/og-image.jpg" />
+
+        <!-- Favicons -->
+        <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
+        <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Structured data: Organization -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Krystal Ingredients Private Limited",
+                "alternateName": "KIPL",
+                "url": "/",
+                "logo": "/favicon.svg",
+                "parentOrganization": {
+                    "@type": "Organization",
+                    "name": "Gem Aromatics Limited"
+                },
+                "address": [
+                    {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Mumbai",
+                        "addressRegion": "Maharashtra",
+                        "addressCountry": "IN"
+                    },
+                    {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Dahej",
+                        "addressRegion": "Gujarat",
+                        "addressCountry": "IN"
+                    }
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "Sales",
+                    "email": "inquiry@krystalingredients.com",
+                    "availableLanguage": ["English"]
+                },
+                "sameAs": []
+            }
+        </script>
+
+        <style>
+            /* Critical inline CSS to avoid FOUC before bundle hydrates */
+            html, body { background: #0A192F; }
+            #root { min-height: 100vh; background: #ffffff; }
+            .kipl-pre-loader {
+                position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+                background: #0A192F; z-index: 9999;
+                transition: opacity 0.5s ease, visibility 0.5s ease;
+            }
+            .kipl-pre-loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+            .kipl-pre-loader__mark { width: 56px; height: 56px; animation: kpl-spin 6s linear infinite; }
+            @keyframes kpl-spin { to { transform: rotate(360deg); } }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            You need to enable JavaScript to view the Krystal Ingredients website.
+        </noscript>
+        <div id="root"></div>
+        <div class="kipl-pre-loader" id="kipl-pre-loader" aria-hidden="true">
+            <svg class="kipl-pre-loader__mark" viewBox="0 0 40 40">
+                <polygon points="20,3 35,12 35,28 20,37 5,28 5,12" fill="none" stroke="#10B981" stroke-width="1.6" />
+                <circle cx="20" cy="20" r="3" fill="#10B981" />
+            </svg>
+        </div>
+        <script>
+            window.addEventListener("load", function () {
+                var el = document.getElementById("kipl-pre-loader");
+                if (el) {
+                    setTimeout(function () { el.classList.add("is-hidden"); }, 200);
+                }
+            });
+        </script>
+    </body>
+</html>
