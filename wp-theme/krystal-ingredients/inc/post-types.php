@@ -296,10 +296,47 @@ add_action( 'save_post_kipl_insight', 'kipl_save_insight_meta' );
 function kipl_maybe_seed_content() {
     if ( ! current_user_can( 'manage_options' ) ) return;
 
-    if ( ! get_option( 'kipl_seeded_v2' ) ) {
+    if ( ! get_option( 'kipl_seeded_v3' ) ) {
+        // Soft-cleanup: remove any existing seeded samples from earlier versions
+        // so the new product line replaces them. User-created posts are untouched.
+        if ( get_option( 'kipl_seeded_v1' ) || get_option( 'kipl_seeded_v2' ) ) {
+            kipl_purge_seed_content();
+        }
         kipl_seed_sample_content();
+        update_option( 'kipl_seeded_v3', 1 );
         update_option( 'kipl_seeded_v2', 1 );
         update_option( 'kipl_seeded_v1', 1 );
+    }
+}
+
+/**
+ * Best-effort cleanup of older seed content. Only deletes posts that match
+ * the seeded titles exactly and have no comments / metadata indicating
+ * client edits. Anything the client has authored stays.
+ */
+function kipl_purge_seed_content() {
+    $old_titles = [
+        'kipl_product' => [ 'Aroma Chemicals', 'Specialty Ingredients', 'Phenol Derivatives', 'Natural-Identical', 'Custom Manufacturing' ],
+    ];
+    foreach ( $old_titles as $post_type => $titles ) {
+        $found = get_posts( [
+            'post_type'      => $post_type,
+            'posts_per_page' => 50,
+            'post_status'    => 'any',
+            'title__in'      => $titles, // not a real param — we filter manually below
+            'fields'         => 'ids',
+        ] );
+        // get_posts doesn't support title__in; do a manual filter.
+        $candidates = get_posts( [
+            'post_type'      => $post_type,
+            'posts_per_page' => 100,
+            'post_status'    => 'any',
+        ] );
+        foreach ( $candidates as $p ) {
+            if ( in_array( $p->post_title, $titles, true ) ) {
+                wp_delete_post( $p->ID, true );
+            }
+        }
     }
 }
 add_action( 'admin_init', 'kipl_maybe_seed_content' );
@@ -307,11 +344,48 @@ add_action( 'admin_init', 'kipl_maybe_seed_content' );
 function kipl_seed_sample_content() {
     $samples = [
         'product' => [
-            [ 'title' => 'Aroma Chemicals',         'no' => '01', 'tagline' => 'Olfactory precision at molecular scale', 'body' => 'High-purity synthetic and natural-identical aroma compounds engineered for stability, longevity, and superior olfactory performance.', 'bullets' => "> 99% purity grades\nBatch-to-batch consistency\nLow-odour impurities" ],
-            [ 'title' => 'Specialty Ingredients',   'no' => '02', 'tagline' => 'Advanced molecular formulations',         'body' => 'Niche-grade molecules catering to high-growth sectors with stringent performance criteria.', 'bullets' => "Custom specifications\nCross-industry applications\nGMP-ready grades" ],
-            [ 'title' => 'Phenol Derivatives',      'no' => '03', 'tagline' => 'Industrial intermediates, engineered',     'body' => 'Industry-leading intermediates manufactured under strict quality controls for downstream applications.', 'bullets' => "Large-scale availability\nStable supply chain\nREACH documentation" ],
-            [ 'title' => 'Natural-Identical',       'no' => '04', 'tagline' => 'Nature-mimicking, sustainably sourced',    'body' => 'Sustainable, nature-mimicking ingredients that deliver authentic profiles without depleting natural resources.', 'bullets' => "Bio-inspired synthesis\nTraceable sourcing\nConsumer-safe grades" ],
-            [ 'title' => 'Custom Manufacturing',    'no' => '05', 'tagline' => 'From lab bench to tonne-scale',            'body' => 'Bespoke, scalable molecule development tailored to specific client formulations and industrial needs.', 'bullets' => "NDA-protected\nLab → pilot → commercial\nDedicated campaigns" ],
+            [
+                'title' => 'Menthol',
+                'no'    => '01',
+                'tagline' => 'L-menthol & DL-menthol — pharmacopeia grade',
+                'body'  => 'Crystalline menthol manufactured to USP, BP, EP and JP monographs — supplied to oral care, pharmaceutical, confectionery and personal-care formulators across 40+ countries.',
+                'bullets' => "USP / BP / EP / JP grades\n≥99% assay purity\nBSE/TSE-free certification",
+            ],
+            [
+                'title' => 'Cis-3 Hexenol',
+                'no'    => '02',
+                'tagline' => 'Leaf alcohol — the fresh-green note',
+                'body'  => 'High-purity cis-3-hexen-1-ol delivering the unmistakable cut-grass green character central to fine perfumery, beverage flavours and natural-identical bases.',
+                'bullets' => "≥98% isomeric purity\nIFRA & FEMA documented\nLow-odour stabilised grades",
+            ],
+            [
+                'title' => 'Peppermint Oil',
+                'no'    => '03',
+                'tagline' => 'Steam-distilled, BP-grade essential oil',
+                'body'  => 'Premium peppermint oil from controlled Mentha piperita cultivation — consistent menthol / menthone profile, batch-traceable from farm to finished good.',
+                'bullets' => "Mentha piperita\nBP / USP / EP grades\nFarm-to-batch traceability",
+            ],
+            [
+                'title' => 'Custom Fragrance Base',
+                'no'    => '04',
+                'tagline' => 'Bespoke accords, engineered to your brief',
+                'body'  => 'Confidential perfumery and flavour compounding — from concept brief to commercial volumes, NDA-protected and IFRA / FEMA aligned at every step.',
+                'bullets' => "NDA-protected briefs\nLab → pilot → commercial scale-up\nIFRA & FEMA documentation",
+            ],
+            [
+                'title' => 'D-Limonene',
+                'no'    => '05',
+                'tagline' => 'Citrus terpene at industrial scale',
+                'body'  => 'Food-grade and technical-grade d-limonene for flavour systems, household cleaners, polymers and natural solvents — supplied in bulk with FCC certification.',
+                'bullets' => "Food, technical & solvent grades\nFCC / FEMA certified\nKosher & Halal options",
+            ],
+            [
+                'title' => 'High-Purity Isolates',
+                'no'    => '06',
+                'tagline' => 'Terpene & aromatic isolates',
+                'body'  => 'Single-component aromatic isolates fractionated to laboratory purity — essential building blocks for fine fragrance, flavour and pharmaceutical formulators.',
+                'bullets' => "Single-component grades >99%\nGC-MS verified\nCustom isomer ratios on request",
+            ],
         ],
         'industry' => [
             [ 'title' => 'Flavors & Fragrances',         'span' => 'hero',   'blurb' => 'Essential building blocks for global perfumery & sensory experiences.' ],

@@ -8,6 +8,7 @@ get_header();
 get_template_part( 'template-parts/section', 'hero' );
 get_template_part( 'template-parts/section', 'numbers' );
 get_template_part( 'template-parts/section', 'about' );
+get_template_part( 'template-parts/section', 'two-brands' );
 get_template_part( 'template-parts/section', 'products' );
 get_template_part( 'template-parts/section', 'industries' );
 get_template_part( 'template-parts/section', 'manufacturing' );

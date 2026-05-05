@@ -144,6 +144,21 @@ function kipl_defaults() {
         'insights_eyebrow' => 'Insights · Newsroom',
         'insights_title'   => 'Field notes from the laboratory floor.',
         'insights_sub'     => 'Technical bulletins, application notes, and announcements from our chemistry, manufacturing, and sustainability teams.',
+
+        // Two Brands narrative (new)
+        'two_brands_eyebrow' => 'One Group · Two Specialised Brands',
+        'two_brands_title'   => 'A 25-year aroma chemistry legacy, paired with a clean-sheet specialty platform.',
+        'two_brands_sub'     => 'Gem Aromatics gives our customers four decades of essential-oil and aroma-chemical heritage. Krystal Ingredients gives them a purpose-built, continuous-flow specialty plant designed for the chemistries of the next decade.',
+        'gem_label'          => 'Gem Aromatics Limited',
+        'gem_year'           => 'Since 1997',
+        'gem_blurb'          => 'A publicly-listed specialist in essential oils and aroma chemicals. Trusted by perfume houses and flavour formulators across India, Europe and North America for over two decades.',
+        'gem_link_label'     => 'Visit gemaromatics.com',
+        'gem_link'           => 'https://gemaromatics.com',
+        'kipl_label'         => 'Krystal Ingredients Pvt. Ltd.',
+        'kipl_year'          => 'Since 2023',
+        'kipl_blurb'         => 'The next-generation specialty-chemistry arm — purpose-built around continuous-flow reactors, custom synthesis, and pharmaceutical-grade documentation at industrial scale.',
+        'kipl_link_label'    => 'Explore the catalogue',
+        'kipl_link'          => '#products',
     ];
 }
 

@@ -334,6 +334,41 @@ function kipl_register_customizer( $wp_customize ) {
     }
 
     /* ===================================================================
+     * Section 9a — Two Brands (Gem Aromatics + Krystal Ingredients)
+     * =================================================================== */
+    $wp_customize->add_section( 'kipl_two_brands', [
+        'title' => __( '2A · Two Brands (Gem + KIPL)', 'krystal-ingredients' ),
+        'panel' => 'kipl_panel',
+    ] );
+    $two_brand_fields = [
+        'two_brands_eyebrow' => [ 'Eyebrow', 'text' ],
+        'two_brands_title'   => [ 'Title', 'text' ],
+        'two_brands_sub'     => [ 'Sub-headline', 'textarea' ],
+        'gem_label'          => [ 'Gem Aromatics — name', 'text' ],
+        'gem_year'           => [ 'Gem Aromatics — established', 'text' ],
+        'gem_blurb'          => [ 'Gem Aromatics — description', 'textarea' ],
+        'gem_link_label'     => [ 'Gem Aromatics — link label', 'text' ],
+        'gem_link'           => [ 'Gem Aromatics — link URL', 'url' ],
+        'kipl_label'         => [ 'KIPL — name', 'text' ],
+        'kipl_year'          => [ 'KIPL — established', 'text' ],
+        'kipl_blurb'         => [ 'KIPL — description', 'textarea' ],
+        'kipl_link_label'    => [ 'KIPL — link label', 'text' ],
+        'kipl_link'          => [ 'KIPL — link URL', 'url' ],
+    ];
+    foreach ( $two_brand_fields as $key => $meta ) {
+        list( $label, $type ) = $meta;
+        $wp_customize->add_setting( $key, [
+            'default'           => $defaults[ $key ] ?? '',
+            'sanitize_callback' => ( $type === 'url' ) ? 'esc_url_raw' : 'wp_kses_post',
+        ] );
+        $wp_customize->add_control( $key, [
+            'label'   => __( $label, 'krystal-ingredients' ),
+            'section' => 'kipl_two_brands',
+            'type'    => ( $type === 'url' ) ? 'url' : $type,
+        ] );
+    }
+
+    /* ===================================================================
      * Section 9b — Numbers strip
      * =================================================================== */
     $wp_customize->add_section( 'kipl_numbers', [

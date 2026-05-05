@@ -97,6 +97,71 @@ No plugins are required. WP Mail SMTP is **optional** but recommended for higher
 
 ---
 
+## 3.5. Replacing an existing Elementor / page-builder build
+
+If your subdomain currently runs Elementor (or any page builder) and you want
+to switch to this theme without breaking anything, follow this **safe
+swap-and-verify sequence** rather than deleting plugins first.
+
+### Why not just delete Elementor?
+
+Pages built with Elementor store their layout as a serialised structure
+inside `post_content`. Without Elementor's CSS/JS the rendered output looks
+broken. You want our theme rendering the homepage *before* you remove
+Elementor — that way you can verify everything works before tearing
+anything out.
+
+### The sequence
+
+1. **Take a backup first.** hPanel → **Files → Backups** (or use a plugin
+   like UpdraftPlus). Hostinger's daily backups are also a fallback.
+
+2. **Note your current Elementor pages.** wp-admin → **Pages**. Anything
+   labelled "Edited with Elementor" will need to be either re-created in our
+   theme later or deleted. The homepage doesn't matter — our `front-page.php`
+   takes priority over any page-builder homepage automatically.
+
+3. **Activate the Krystal Ingredients theme.** Upload + activate via
+   Appearance → Themes (see Section 3 above). The homepage flips immediately
+   to our design — Elementor is no longer rendering it.
+
+4. **Walk every URL** on the live site (Home, any inner pages, the contact
+   page, blog posts if any). Anything that still looks unstyled is a page
+   that *needs* Elementor's CSS/JS to render.
+
+5. **Deactivate Elementor (don't delete).** wp-admin → **Plugins** → find
+   "Elementor" + "Elementor Pro" → **Deactivate**. Reload every page you
+   walked in step 4. If everything still works, you're safe.
+
+   - Anything that breaks at this point is a page that depends on Elementor.
+     Your options are: rebuild that page using our theme's `page.php` +
+     Gutenberg blocks, **or** keep Elementor activated for those pages only.
+
+6. **Delete Elementor (when ready).** Once you've confirmed nothing depends
+   on it, hit **Delete** on Elementor + Elementor Pro. This removes
+   ~400 KB of plugin assets from every page load.
+
+7. **Edit Settings → General.** Set **Site Title** to *Krystal Ingredients*
+   and **Tagline** to your preferred byline (e.g. *Specialty chemistry,
+   engineered for tomorrow*). The previous title `KIPL version` was a
+   placeholder.
+
+8. **Open Customizer.** Appearance → Customize → **KIPL · Site Content**.
+   Walk through panels 01 → 14, dropping in the real copy and images. A few
+   panels reference custom post types — those are managed in the sidebar
+   (Products, Industries, Timeline, Insights).
+
+### Should I keep Elementor for one-off pages?
+
+Generally **no** — our theme has Gutenberg block styles tuned to match the
+brand (see `assets/css/editor.css`), and any page you build with Gutenberg
+will render natively without needing a page builder. The exception is if
+you have a complex one-off landing page (e.g. an event page) that's faster
+to lay out visually — in that case, keep Elementor active and re-deactivate
+when done.
+
+---
+
 ## 4. After activation — first-run
 
 1. The theme will **auto-create a `Home` page** and set it as the static homepage. If you already have a homepage, edit **Settings → Reading → Your homepage displays** and pick whichever page you want.
@@ -113,6 +178,7 @@ No plugins are required. WP Mail SMTP is **optional** but recommended for higher
 | ------------------ | ---------------------------------------------------------------------------- |
 | Hero               | Customizer → KIPL · Site Content → 01 · Hero                                  |
 | About + Pillars    | Customizer → 02 · About / Group                                               |
+| Two Brands narrative | Customizer → 2A · Two Brands (Gem + KIPL)                                   |
 | Timeline events    | wp-admin → Timeline                                                           |
 | Products intro     | Customizer → 03 · Products (intro)                                            |
 | Product cards      | wp-admin → Products                                                           |
