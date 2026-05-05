@@ -1,0 +1,36 @@
+/*
+Theme Name: Krystal Ingredients
+Theme URI: https://krystalingredients.com/
+Author: Krystal Ingredients Pvt. Ltd.
+Author URI: https://krystalingredients.com/
+Description: Premium corporate WordPress theme for Krystal Ingredients Pvt. Ltd. — a specialty chemicals manufacturer. Tailored hero with molecular animation, glassmorphism navigation, fully editable via the WordPress Customizer and three custom post types (Products, Industries, Timeline).
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.6
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: krystal-ingredients
+Tags: business, corporate, custom-colors, custom-logo, custom-menu, featured-images, full-width-template, theme-options, threaded-comments
+*/
+
+/*
+ * The visible look-and-feel is delivered from /assets/css/main.css and the
+ * Tailwind CDN runtime — this file only carries the WordPress theme header
+ * and a small reset so wp-admin recognises the theme correctly.
+ */
+
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+body { margin: 0; }
+
+/* WordPress alignment helpers (required for theme review compliance) */
+.alignleft { float: left; margin-right: 1.5em; }
+.alignright { float: right; margin-left: 1.5em; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.screen-reader-text {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
+    word-wrap: normal !important;
+}
